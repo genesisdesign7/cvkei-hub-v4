@@ -1,5 +1,15 @@
-import { redirect } from 'next/navigation';
+ // Reusable Infinite Scroll Component
 
-export default function Home() {
-  redirect('/dashboard');
+import DashboardPage from "./dashboard/page";
+
+export default function Landing() {
+  return (
+    <div className="bg-black text-white">      
+
+      <DashboardPage />
+
+      {/* <LogoScroll /> */}
+
+    </div>
+  );
 }
