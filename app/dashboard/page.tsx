@@ -48,7 +48,12 @@ export default function DashboardPage() {
     }
   }
 
-  if (!user) return null;
+  if (!user) {
+  if (typeof window !== 'undefined') {
+    window.location.href = '/login';
+  }
+  return null;
+}
 
   return (
     <div className="flex bg-[#0A0A0A] min-h-screen text-[#F2EFE8]">
