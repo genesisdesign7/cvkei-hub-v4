@@ -12,12 +12,13 @@ export default function DashboardPage() {
   const [chartData, setChartData] = useState<any[]>([]);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem('cvkei_user');
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-      fetchDashboardData();
-    }
-  }, []);
+  if (typeof window === 'undefined') return;
+  const savedUser = localStorage.getItem('cvkei_user');
+  if (savedUser) {
+    setUser(JSON.parse(savedUser));
+    fetchDashboardData();
+  }
+}, []);
 
   async function fetchDashboardData() {
     // 1. Ambil jumlah konten minggu ini
